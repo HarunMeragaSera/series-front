@@ -1,15 +1,24 @@
-import { Component } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+  import { Component } from '@angular/core';
+  import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
-@Component({
-  selector: 'app-header',
-  standalone: true,
-  imports: [],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
-})
-export class HeaderComponent {
+  @Component({
+    selector: 'app-header',
+    standalone: true,
+    imports: [TranslateModule],
+    templateUrl: './header.component.html',
+    styleUrl: './header.component.css'
+  })
+  export class HeaderComponent {
 
-  constructor(private translate: TranslateService) { }
+    constructor (private translate: TranslateService) {
+        this.translate.use('es');
+        this.translate.get('hello').subscribe(res => console.log('TRAD:', res));
+     }
 
-}
+    setLang(lang: string) {
+      this.translate.use(lang);
+    }
+    get currentLang(): string {
+      return this.translate.currentLang;
+    }
+  }
