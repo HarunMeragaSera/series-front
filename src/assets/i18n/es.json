@@ -1,3 +1,7 @@
 {
-  "hello": "Hola"
+  "header": {
+    "language": "Idioma",
+    "spanish": "Español",
+    "english": "Inglés"
+  }
 }

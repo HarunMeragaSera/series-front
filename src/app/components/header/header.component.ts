@@ -12,7 +12,6 @@
 
     constructor (private translate: TranslateService) {
         this.translate.use('es');
-        this.translate.get('hello').subscribe(res => console.log('TRAD:', res));
      }
 
     setLang(lang: string) {
