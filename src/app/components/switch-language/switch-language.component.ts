@@ -18,4 +18,16 @@ export class SwitchLanguageComponent {
     this.translate.use(lang);
   }
 
+  get currentFlag(): string {
+    const currentLang = this.translate.currentLang;
+    switch (currentLang) {
+      case 'es':
+        return 'assets/flags/es.svg';
+      case 'en':
+        return 'assets/flags/en.svg';
+      default:
+        return 'assets/flags/es.svg';
+    }
+  }
+
 }

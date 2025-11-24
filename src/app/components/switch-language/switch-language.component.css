@@ -1,0 +1,16 @@
+.flag-icon {
+  width: 35px;
+  height: 27px;
+  object-fit: cover;
+  margin-right: 8px;
+  border-radius: 3px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+}
+.flag-button {
+  width: 52px;
+  height: 39px;
+  object-fit: cover;
+  margin-right: 3px;
+  border-radius: 3px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+}
