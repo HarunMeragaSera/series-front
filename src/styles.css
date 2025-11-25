@@ -1,4 +1,16 @@
 .main-border {
-  border: 1px solid #51004b;
+  color: rgb(102, 102, 102);
+}
+.dropdown-menu.custom-dark {
+  background-color: #222; /* fondo oscuro */
+  color: #fff;            /* texto claro */
 }
 
+.dropdown-item {
+  color: #fff;            /* texto claro */
+}
+
+.dropdown-menu.custom-dark .dropdown-item:hover {
+  background-color: #444;
+  color: #fff;
+}
