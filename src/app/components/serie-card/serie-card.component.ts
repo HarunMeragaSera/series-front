@@ -12,5 +12,5 @@ import { Series } from '../../models/series.model';
 
 export class SerieCardComponent {
 
-  @Input() series!: Series;
+  @Input() serie!: Series;
 }
