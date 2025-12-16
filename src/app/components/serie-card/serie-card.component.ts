@@ -13,4 +13,8 @@ import { Series } from '../../models/series.model';
 export class SerieCardComponent {
 
   @Input() serie!: Series;
+
+  onImageError(event: Event) {
+    (event.target as HTMLImageElement).src = 'assets/default.png';
+  }
 }

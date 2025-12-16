@@ -1,5 +1,9 @@
 <div class="card serie-card">
-  <img [src]="serie.imageUrl" alt="{{ serie.name }}">
+  <img
+  [src]="serie.imageUrl"
+  (error)="onImageError($event)"
+  alt="{{ serie.name }}"
+>
   <div class="card-body">
     <h5 class="card-title">{{ serie.name }}</h5>
     <p class="card-text">{{ serie.rating }}</p>
