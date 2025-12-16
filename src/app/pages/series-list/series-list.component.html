@@ -1,1 +1,3 @@
-<p>series-list works!</p>
+@for (serie of series; track $index) {
+  <series-card [series]="serie"></series-card>
+}
