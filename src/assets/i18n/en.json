@@ -9,5 +9,11 @@
     "sufficient": "Meh",
     "notable": "Recommended",
     "excellent": "Very Recommended"
+  },
+  "detail": {
+    "copyLink": "Copy link",
+    "year": "Year",
+    "genre": "Genre",
+    "rating": "Rating"
   }
 }

@@ -7,7 +7,7 @@ import { Series } from '../../models/series.model';
 @Component({
   selector: 'app-series-detail',
   standalone: true,
-  imports: [],
+  imports: [TranslateModule],
   templateUrl: './series-detail.component.html',
   styleUrl: './series-detail.component.css'
 })

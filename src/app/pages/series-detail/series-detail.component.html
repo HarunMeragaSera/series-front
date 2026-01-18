@@ -10,12 +10,11 @@
         <div class="col-md-8">
           <h1 class="display-4 fw-bold">{{ serie.name }}</h1>
           <p class="lead mb-3">
-            <strong>Año:</strong> {{ serie.yearWatch || 'Desconocido' }}
+            <strong>{{"detail.year"|translate }}:</strong> {{ serie.yearWatch || "~" }}
           </p>
           <p class="description">{{ serie.description }}</p>
           <div class="mt-4">
-            <button class="btn btn-danger btn-lg me-2">Ver ahora</button>
-            <button class="btn btn-outline-light btn-lg" (click)="copyLink()">Copiar link</button>
+            <button class="btn btn-outline-light btn-lg" (click)="copyLink()">{{"detail.copyLink"|translate}}</button>
           </div>
         </div>
       </div>
