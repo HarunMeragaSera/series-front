@@ -11,8 +11,11 @@ export class SeriesService {
 
   constructor(private http: HttpClient) {}
 
-  // Obtener todas las series
   getAll(): Observable<Series[]> {
     return this.http.get<Series[]>(this.apiUrl);
+  }
+
+  getByPublicId(publicId: string): Observable<Series> {
+    return this.http.get<Series>(`${this.apiUrl}/${publicId}`);
   }
 }

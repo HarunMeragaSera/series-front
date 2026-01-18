@@ -6,6 +6,6 @@ export class Series {
     public rating: Rating,
     public yearWatch: number,
     public imageUrl?: string,
-    public id?: number
+    public publicId?: string
   ) {}
 }
