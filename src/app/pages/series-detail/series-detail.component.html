@@ -1,20 +1,21 @@
 <div class="series-detail-container position-relative text-white">
+  @if(serie){
+    <div class="background-img"
+      [style.background-image]="'url(' + (serie.imageUrl || 'assets/default.png') + ')'"
+    ></div>
 
-  <div class="background-img"
-    [style.background-image]="'url(' + (serie.imageUrl || 'assets/default.png') + ')'"
-  ></div>
+    <div class="overlay"></div>
+      <div class="container position-relative py-5">
+        <div class="row">
+          <div class="col-md-8">
+            <h1 class="display-4 fw-bold">{{ serie.name }}</h1>
+            <p class="lead mb-3">
+              <strong>{{"detail.year"|translate }}:</strong> {{ serie.yearWatch || "~" }}
+            </p>
+            <p class="description">{{ serie.description }}</p>
 
-  <div class="overlay"></div>
-    <div class="container position-relative py-5">
-      <div class="row">
-        <div class="col-md-8">
-          <h1 class="display-4 fw-bold">{{ serie.name }}</h1>
-          <p class="lead mb-3">
-            <strong>{{"detail.year"|translate }}:</strong> {{ serie.yearWatch || "~" }}
-          </p>
-          <p class="description">{{ serie.description }}</p>
-
+          </div>
         </div>
-      </div>
-  </div>
+    </div>
+  }
 </div>
