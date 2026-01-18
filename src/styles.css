@@ -14,3 +14,15 @@
   background-color: #444;
   color: #fff;
 }
+
+.no-hover:hover,
+.no-hover:focus,
+.no-hover:active {
+  background-color: inherit;
+  color: inherit;
+  box-shadow: none;
+}
+
+.no-click {
+  pointer-events: none;
+}

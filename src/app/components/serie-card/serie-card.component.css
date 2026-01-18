@@ -13,3 +13,8 @@
   object-fit: cover;
   border-radius: 0.375rem 0 0 0.375rem;
 }
+
+.button-div {
+  display: flex;
+  gap: 10px;
+}
