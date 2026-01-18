@@ -7,7 +7,7 @@
   <div class="card-body">
     <h5 class="card-title">{{ serie.name }}</h5>
     <div class="button-div">
-      <button type="button" class="btn btn-danger no-hover no-click">{{ serie.rating }}</button>
+      <button type="button" class="btn btn-danger no-hover no-click"> {{ "ratings." + serie.rating|translate }} </button>
       <button type="button" class="btn btn-danger no-hover no-click">{{ serie.yearWatch }}</button>
     </div>
     <p></p>

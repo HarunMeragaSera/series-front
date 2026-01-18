@@ -3,5 +3,11 @@
     "language": "Idioma",
     "spanish": "Español",
     "english": "Inglés"
+  },
+  "ratings": {
+    "insufficient": "No recomendada",
+    "sufficient": "Meh",
+    "notable": "Recomendada",
+    "excellent": "Muy recomendada"
   }
 }
