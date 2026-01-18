@@ -37,4 +37,11 @@ export class SeriesDetailComponent implements OnInit {
     });
   }
 
+  copyLink() {
+  const url = `${window.location.origin}/series/${this.serie.publicId}`;
+  navigator.clipboard.writeText(url).then(() => {
+    alert('Link copiado al portapapeles!');
+  });
+}
+
 }
