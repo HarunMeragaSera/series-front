@@ -14,6 +14,7 @@ import { Series } from '../../models/series.model';
 export class SeriesDetailComponent implements OnInit {
 
   serie!: Series;
+  message?: string;
 
   constructor(
     private seriesService: SeriesService,
@@ -36,12 +37,4 @@ export class SeriesDetailComponent implements OnInit {
       error: err => console.error('Serie no encontrada', err)
     });
   }
-
-  copyLink() {
-  const url = `${window.location.origin}/series/${this.serie.publicId}`;
-  navigator.clipboard.writeText(url).then(() => {
-    alert('Link copiado al portapapeles!');
-  });
-}
-
 }
