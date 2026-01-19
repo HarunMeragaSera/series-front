@@ -3,11 +3,13 @@ import { TranslateService,TranslateModule } from '@ngx-translate/core';
 import { SeriesService } from '../../services/series.service';
 import { ActivatedRoute } from '@angular/router';
 import { Series } from '../../models/series.model';
+import { Rating } from '../../enums/rating.enum';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-series-detail',
   standalone: true,
-  imports: [TranslateModule],
+  imports: [TranslateModule,CommonModule],
   templateUrl: './series-detail.component.html',
   styleUrl: './series-detail.component.css'
 })
@@ -18,8 +20,7 @@ export class SeriesDetailComponent implements OnInit {
 
   constructor(
     private seriesService: SeriesService,
-    private translate: TranslateService,
-    private route: ActivatedRoute,
+    private route: ActivatedRoute
   ) { }
 
     ngOnInit() {
@@ -37,4 +38,5 @@ export class SeriesDetailComponent implements OnInit {
       error: err => console.error('Serie no encontrada', err)
     });
   }
+
 }

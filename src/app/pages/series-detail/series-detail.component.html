@@ -9,9 +9,13 @@
         <div class="row">
           <div class="col-md-8">
             <h1 class="display-4 fw-bold">{{ serie.name }}</h1>
-            <p class="lead mb-3">
-              <strong>{{"detail.year"|translate }}:</strong> {{ serie.yearWatch || "~" }}
-            </p>
+            <div class="serie-meta">
+              <span class="year">{{ serie.yearWatch }}</span>
+              <span class="dot">•</span>
+              <span class="rating">
+                {{ 'ratings.' + serie.rating | translate }}
+              </span>
+            </div>
             <p class="description">{{ serie.description }}</p>
 
           </div>

@@ -38,3 +38,28 @@
 .btn-lg {
   font-size: 1.1rem;
 }
+
+.serie-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.2rem;          /* ⬆️ MÁS GRANDE */
+  font-weight: 600;           /* ⬆️ MÁS PRESENCIA */
+  margin-bottom: 1.2rem;
+  color: #eee;
+}
+
+.serie-meta .year {
+  opacity: 0.95;
+}
+
+.serie-meta .dot {
+  color: #aaa;
+  font-size: 1.4rem;
+}
+
+.rating {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
