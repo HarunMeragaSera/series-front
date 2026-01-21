@@ -15,6 +15,12 @@
               <span class="rating">
                 {{ 'ratings.' + serie.rating | translate }}
               </span>
+              <span class="dot">•</span>
+              <div class="genres">
+                  @for (genre of serie.genres; track genre) {
+                    <span class="genre-badge">{{ genre }}</span>
+                  }
+              </div>
             </div>
             <p class="description">{{ serie.description }}</p>
 
