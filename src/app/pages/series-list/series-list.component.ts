@@ -3,6 +3,7 @@ import { Series } from '../../models/series.model';
 import { SeriesService } from '../../services/series.service';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { SerieCardComponent } from '../../components/serie-card/serie-card.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-series-list',
@@ -15,11 +16,18 @@ export class SeriesListComponent implements OnInit{
 
   series: Series[] = [];
 
-  constructor(private seriesService: SeriesService, private translate: TranslateService) {}
+  constructor(
+    private seriesService: SeriesService,
+    private translate: TranslateService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.seriesService.getAll().subscribe(data => {
       this.series = data;
     });
+  }
+  openCreateSeries() {
+    this.router.navigate(['/series/create']);
   }
 }
