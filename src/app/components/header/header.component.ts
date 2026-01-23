@@ -1,6 +1,7 @@
   import { Component } from '@angular/core';
   import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { SwitchLanguageComponent } from '../switch-language/switch-language.component';
+import { Router } from '@angular/router';
 
   @Component({
     selector: 'app-header',
@@ -11,6 +12,10 @@ import { SwitchLanguageComponent } from '../switch-language/switch-language.comp
   })
   export class HeaderComponent {
 
-    constructor (private translate: TranslateService) {}
+    constructor (private translate: TranslateService,private router: Router) {}
+
+    navigateToList() {
+      this.router.navigate(['/series']);
+    }
 
   }

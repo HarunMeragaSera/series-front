@@ -7,5 +7,8 @@
   width: 100%;
 }
 .logo {
-  height: 7vh
+  height: 7vh;
+}
+.pointer-default {
+  cursor: default;
 }
