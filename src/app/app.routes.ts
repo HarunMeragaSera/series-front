@@ -6,6 +6,6 @@ import { SeriesCreateComponent } from './pages/series-create/series-create.compo
 export const routes: Routes = [
   { path: '', redirectTo: 'series', pathMatch: 'full' },
   { path: 'series', component: SeriesListComponent },
-  {path: 'series/:publicId', component: SeriesDetailComponent},
-  {path: 'series/create', component: SeriesCreateComponent}
+  {path: 'series/create', component: SeriesCreateComponent},
+  {path: 'series/:publicId', component: SeriesDetailComponent}
 ];

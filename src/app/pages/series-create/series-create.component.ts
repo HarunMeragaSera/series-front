@@ -4,6 +4,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { SeriesService } from '../../services/series.service';
 import { Rating } from '../../enums/rating.enum';
+import { GenreService } from '../../services/genre.service';
+import { Genre } from '../../models/genre.model';
 
 @Component({
   selector: 'app-series-create',
@@ -14,16 +16,17 @@ import { Rating } from '../../enums/rating.enum';
 })
 export class SeriesCreateComponent implements OnInit {
 
-  //Create genre service
-  //Import genres
-  
+  genres?: Genre[] = [];
+
 
   constructor(
     private seriesService: SeriesService,
+    private genreService: GenreService
   ) { }
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.getGenres();
+
   }
 
   seriesForm = new FormGroup({
@@ -34,5 +37,17 @@ export class SeriesCreateComponent implements OnInit {
       description: new FormControl('', [Validators.maxLength(2000)]),
       genreIds: new FormControl<number[]|null>(null)
   });
+
+  getGenres(): void {
+    this.genreService.getAll().subscribe({
+      next: (genres) => {
+        this.genres = genres;
+        console.log('Fetched genres:', this.genres);
+      },
+      error: (err) => {
+        console.error('Error fetching genres', err);
+      }
+    });
+  }
 
 }
