@@ -5,6 +5,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { Genre } from '../../models/genre.model';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-genre-multiselect',
@@ -14,7 +15,8 @@ import { Genre } from '../../models/genre.model';
     CommonModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    MatInputModule
   ],
   templateUrl: './genre-multiselect.component.html',
   styleUrl: './genre-multiselect.component.css'

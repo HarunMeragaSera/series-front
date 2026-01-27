@@ -1,34 +1,53 @@
 <form [formGroup]="seriesForm" (ngSubmit)="submit()" class="ms-4 mt-4">
   <div class="row">
     <div class="form-group col-4">
-      <label>Name</label>
-      <input type="text" formControlName="name" placeholder="Series Name" />
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" formControlName="name" placeholder="Series name" />
+      </mat-form-field>
     </div>
     <div class="form-group col-3">
-      <label>Rating</label>
-      <select formControlName="rating">
-        <option [ngValue]="null">Select rating</option>
-        @for (r of ratingOptions; track $index) {
-        <option [value]="r">{{ "ratings." + r | translate }}</option>
-        }
-      </select>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Rating</mat-label>
+        <mat-select formControlName="rating">
+          <mat-option [value]="null">
+            {{ 'ratings.null' | translate }}
+          </mat-option>
+          @for (r of ratingOptions; track r) {
+          <mat-option [value]="r">
+            {{ 'ratings.' + r | translate }}
+          </mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
     </div>
     <div class="form-group col-3">
-      <label>Watched Year</label>
-      <input type="number" formControlName="yearWatch" placeholder="Year Watched" min="1" max="2200" />
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Year watched</mat-label>
+        <input matInput type="number" formControlName="yearWatch" min="1" />
+      </mat-form-field>
     </div>
   </div>
   <div class="row">
     <div class="form-group col-4">
-      <label>Image</label>
-      <input type="text" formControlName="imageUrl" placeholder="Image URL" />
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Image URL</mat-label>
+        <input matInput type="url" formControlName="imageUrl" placeholder="https://..." />
+      </mat-form-field>
+    </div>
+    <div class="form-group col-4">
+      <app-genre-multiselect [genres]="genres!" (selectedIdsChange)="onGenresSelected($event)"></app-genre-multiselect>
     </div>
   </div>
   <div class="row">
     <div class="form-group col-5">
-      <label>Description</label>
-      <textarea formControlName="description" rows="5"
-        placeholder="Write a brief description of the series..."></textarea>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description" rows="4" maxlength="2000"></textarea>
+        <mat-hint align="end">
+          {{ seriesForm.get('description')?.value?.length || 0 }}/2000
+        </mat-hint>
+      </mat-form-field>
     </div>
   </div>
   <!-- <button type="submit">Create Series</button> -->

@@ -6,11 +6,18 @@ import { SeriesService } from '../../services/series.service';
 import { Rating } from '../../enums/rating.enum';
 import { GenreService } from '../../services/genre.service';
 import { Genre } from '../../models/genre.model';
+import { GenreMultiselectComponent } from '../../components/genre-multiselect/genre-multiselect.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-series-create',
   standalone: true,
-  imports: [TranslateModule,CommonModule,ReactiveFormsModule],
+  imports: [
+    TranslateModule,CommonModule,ReactiveFormsModule,GenreMultiselectComponent,
+    MatFormFieldModule,MatSelectModule,MatInputModule
+  ],
   templateUrl: './series-create.component.html',
   styleUrl: './series-create.component.css'
 })
@@ -47,6 +54,12 @@ export class SeriesCreateComponent implements OnInit {
       error: (err) => {
         console.error('Error fetching genres', err);
       }
+    });
+  }
+
+  onGenresSelected(ids: number[]): void {
+    this.seriesForm.patchValue({
+    genreIds: ids
     });
   }
 

@@ -5,6 +5,7 @@
     "english": "Inglés"
   },
   "ratings": {
+    "null": "Sin valoración",
     "insufficient": "No recomendada",
     "sufficient": "Meh",
     "notable": "Recomendada",
