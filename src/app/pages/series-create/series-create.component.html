@@ -1,1 +1,35 @@
-<p>series-create works!</p>
+<form [formGroup]="seriesForm" (ngSubmit)="submit()" class="ms-4 mt-4">
+  <div class="row">
+    <div class="form-group col-4">
+      <label>Name</label>
+      <input type="text" formControlName="name" placeholder="Series Name" />
+    </div>
+    <div class="form-group col-3">
+      <label>Rating</label>
+      <select formControlName="rating">
+        <option [ngValue]="null">Select rating</option>
+        @for (r of ratingOptions; track $index) {
+        <option [value]="r">{{ "ratings." + r | translate }}</option>
+        }
+      </select>
+    </div>
+    <div class="form-group col-3">
+      <label>Watched Year</label>
+      <input type="number" formControlName="yearWatch" placeholder="Year Watched" min="1" max="2200" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-4">
+      <label>Image</label>
+      <input type="text" formControlName="imageUrl" placeholder="Image URL" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-5">
+      <label>Description</label>
+      <textarea formControlName="description" rows="5"
+        placeholder="Write a brief description of the series..."></textarea>
+    </div>
+  </div>
+  <!-- <button type="submit">Create Series</button> -->
+</form>

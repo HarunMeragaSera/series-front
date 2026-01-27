@@ -17,7 +17,7 @@ import { Genre } from '../../models/genre.model';
 export class SeriesCreateComponent implements OnInit {
 
   genres?: Genre[] = [];
-
+  ratingOptions = Object.values(Rating);
 
   constructor(
     private seriesService: SeriesService,
@@ -48,6 +48,13 @@ export class SeriesCreateComponent implements OnInit {
         console.error('Error fetching genres', err);
       }
     });
+  }
+
+  submit() {
+    if (this.seriesForm.invalid) {
+      console.log('Formulario inválido');
+      return;
+    }
   }
 
 }
