@@ -5,7 +5,11 @@
   <mat-select [formControl]="control" multiple>
     @for (genre of genres; track $index) {
       <mat-option [value]="genre.id">
-        {{ genre.name }}
+        @if(getLanguage() === 'es') {
+          {{ genre.name_es }}
+        } @else {
+          {{ genre.name }}
+        }
       </mat-option>
     }
   </mat-select>

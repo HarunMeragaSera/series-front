@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { Genre } from '../../models/genre.model';
@@ -29,9 +29,13 @@ export class GenreMultiselectComponent {
   @Output() selectedIdsChange = new EventEmitter<number[]>();
   control = new FormControl<number[]>([]);
 
-  constructor() {
+  constructor(private translate: TranslateService) {
     this.control.valueChanges.subscribe(value => {
     this.selectedIdsChange.emit(value ?? []);
     });
+  }
+
+  getLanguage(): string {
+    return this.translate.currentLang;
   }
 }

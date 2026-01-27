@@ -2,6 +2,6 @@ export class Genre{
   constructor(
     public id: number,
     public name: string,
-    public nameEs: string
+    public name_es: string
   ){}
 }

@@ -63,11 +63,12 @@ export class SeriesCreateComponent implements OnInit {
     });
   }
 
-  submit() {
-    if (this.seriesForm.invalid) {
-      console.log('Formulario inválido');
-      return;
-    }
+submit(): void {
+  if (this.seriesForm.invalid) {
+    console.warn('Form invalid', this.seriesForm.errors);
+    return;
   }
+  console.log('Form value:', this.seriesForm.value);
+}
 
 }
