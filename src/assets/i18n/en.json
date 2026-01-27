@@ -15,5 +15,14 @@
     "year": "Year",
     "genre": "Genre",
     "rating": "Rating"
+  },
+  "form": {
+    "save": "Save",
+    "name": "Name",
+    "imageUrl": "Image URL",
+    "yearWatch": "Year watched",
+    "description": "Description",
+    "rating": "Rating",
+    "genres": "Genres"
   }
 }

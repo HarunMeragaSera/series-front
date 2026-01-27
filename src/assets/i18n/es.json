@@ -15,5 +15,14 @@
     "year": "Año",
     "genre": "Género",
     "rating": "Valoración"
+  },
+  "form": {
+    "save": "Guardar",
+    "name": "Nombre",
+    "imageUrl": "URL de la imagen",
+    "yearWatch": "Año de visualización",
+    "description": "Descripción",
+    "rating": "Valoracion",
+    "genres": "Géneros"
   }
 }
