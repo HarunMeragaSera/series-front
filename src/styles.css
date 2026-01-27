@@ -1,13 +1,14 @@
 .main-border {
   color: rgb(102, 102, 102);
 }
+
 .dropdown-menu.custom-dark {
-  background-color: #222; /* fondo oscuro */
-  color: #fff;            /* texto claro */
+  background-color: #222;
+  color: #fff;
 }
 
 .dropdown-item {
-  color: #fff;            /* texto claro */
+  color: #fff;
 }
 
 .dropdown-menu.custom-dark .dropdown-item:hover {
@@ -27,5 +28,39 @@
   pointer-events: none;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.white-field {
+  --mdc-outlined-text-field-outline-color: white;
+  --mdc-outlined-text-field-focus-outline-color: white;
+  --mdc-outlined-text-field-label-text-color: white;
+  --mdc-outlined-text-field-input-text-color: white;
+  --mdc-outlined-text-field-caret-color: white;
+  --mdc-outlined-text-field-hover-outline-color: white;
+}
+
+input[type=number] {
+  background-color: #121212;
+  color: white;
+  border: 1px solid white;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  background-color: #121212;
+  color: white;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}

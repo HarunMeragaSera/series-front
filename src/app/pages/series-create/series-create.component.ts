@@ -10,6 +10,7 @@ import { GenreMultiselectComponent } from '../../components/genre-multiselect/ge
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { SeriesCreateModel } from '../../models/series_create.model';
 
 @Component({
   selector: 'app-series-create',
@@ -49,7 +50,6 @@ export class SeriesCreateComponent implements OnInit {
     this.genreService.getAll().subscribe({
       next: (genres) => {
         this.genres = genres;
-        console.log('Fetched genres:', this.genres);
       },
       error: (err) => {
         console.error('Error fetching genres', err);
@@ -66,9 +66,19 @@ export class SeriesCreateComponent implements OnInit {
 submit(): void {
   if (this.seriesForm.invalid) {
     console.warn('Form invalid', this.seriesForm.errors);
+    this.seriesForm.markAllAsTouched();
     return;
   }
-  console.log('Form value:', this.seriesForm.value);
+  const seriesDto: SeriesCreateModel = { ...this.seriesForm.value };
+  this.seriesService.create(seriesDto).subscribe({
+    next: (createdSeries) => {
+      console.log('Series created successfully', createdSeries);
+      this.seriesForm.reset();
+    },
+    error: (err) => {
+      console.error('Error creating series', err);
+    }
+  });
 }
 
 }
