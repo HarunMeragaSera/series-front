@@ -45,6 +45,9 @@ body {
   --mdc-outlined-text-field-input-text-color: white;
   --mdc-outlined-text-field-caret-color: white;
   --mdc-outlined-text-field-hover-outline-color: white;
+  .mat-mdc-select-arrow {
+    color: white;
+  }
 }
 
 input[type=number] {
