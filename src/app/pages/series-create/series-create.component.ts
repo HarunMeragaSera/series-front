@@ -12,6 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { SeriesCreateModel } from '../../models/series_create.model';
 import { MessageService } from '../../services/message.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-series-create',
@@ -31,7 +32,8 @@ export class SeriesCreateComponent implements OnInit {
   constructor(
     private seriesService: SeriesService,
     private genreService: GenreService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -75,12 +77,16 @@ export class SeriesCreateComponent implements OnInit {
     this.seriesService.create(seriesDto).subscribe({
       next: (createdSeries) => {
         this.messageService.success('message.success-series');
-        this.seriesForm.reset();
+        this.navigateToList();
       },
       error: (err) => {
         this.messageService.error('message.error');
       }
     });
+  }
+
+  navigateToList() {
+      this.router.navigate(['/series']);
   }
 
 }
