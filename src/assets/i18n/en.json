@@ -24,5 +24,10 @@
     "description": "Description",
     "rating": "Rating",
     "genres": "Genres"
+  },
+    "message": {
+    "success-series": "Serie saved successfully",
+    "error": "An error occurred",
+    "warning-form": "Missing required fields"
   }
 }

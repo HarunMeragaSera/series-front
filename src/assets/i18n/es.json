@@ -24,5 +24,10 @@
     "description": "Descripción",
     "rating": "Valoracion",
     "genres": "Géneros"
+  },
+  "message": {
+    "success-series": "Serie guardada correctamente",
+    "error": "Se ha producido un error",
+    "warning-form": "Faltan campos obligatorios"
   }
 }

@@ -11,6 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { SeriesCreateModel } from '../../models/series_create.model';
+import { MessageService } from '../../services/message.service';
 
 @Component({
   selector: 'app-series-create',
@@ -29,7 +30,8 @@ export class SeriesCreateComponent implements OnInit {
 
   constructor(
     private seriesService: SeriesService,
-    private genreService: GenreService
+    private genreService: GenreService,
+    private messageService: MessageService
   ) { }
 
   ngOnInit(): void {
@@ -38,7 +40,7 @@ export class SeriesCreateComponent implements OnInit {
   }
 
   seriesForm = new FormGroup({
-      name: new FormControl('', [Validators.required, Validators.maxLength(200)]),
+      name: new FormControl('',[Validators.required, Validators.maxLength(200)]),
       rating: new FormControl<Rating | null>(null),
       imageUrl: new FormControl('', [Validators.maxLength(500)]),
       yearWatch: new FormControl<number | null>(null),
@@ -63,22 +65,22 @@ export class SeriesCreateComponent implements OnInit {
     });
   }
 
-submit(): void {
-  if (this.seriesForm.invalid) {
-    console.warn('Form invalid', this.seriesForm.errors);
-    this.seriesForm.markAllAsTouched();
-    return;
-  }
-  const seriesDto: SeriesCreateModel = { ...this.seriesForm.value };
-  this.seriesService.create(seriesDto).subscribe({
-    next: (createdSeries) => {
-      console.log('Series created successfully', createdSeries);
-      this.seriesForm.reset();
-    },
-    error: (err) => {
-      console.error('Error creating series', err);
+  submit(): void {
+    if (this.seriesForm.invalid) {
+      this.messageService.warning('message.warning-form');
+      this.seriesForm.markAllAsTouched();
+      return;
     }
-  });
-}
+    const seriesDto: SeriesCreateModel = { ...this.seriesForm.value };
+    this.seriesService.create(seriesDto).subscribe({
+      next: (createdSeries) => {
+        this.messageService.success('message.success-series');
+        this.seriesForm.reset();
+      },
+      error: (err) => {
+        this.messageService.error('message.error');
+      }
+    });
+  }
 
 }

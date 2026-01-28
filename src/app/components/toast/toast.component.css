@@ -1,0 +1,17 @@
+.toast-container {
+position: fixed;
+top: 20px;
+left: 70%;
+transform: translateX(-50%);
+padding: 12px 24px;
+border-radius: 8px;
+font-weight: 500;
+z-index: 9999;
+box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+
+.msg-success { background: #198754; color: #fff; }
+.msg-error { background: #dc3545; color: #fff; }
+.msg-info { background: #0d6efd; color: #fff; }
+.msg-warning { background: #ffc107; color: #000; }
