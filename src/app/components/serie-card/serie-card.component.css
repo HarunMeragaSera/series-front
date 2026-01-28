@@ -19,3 +19,40 @@
   gap: 10px;
   flex-wrap: wrap;
 }
+
+.rating-btn {
+border: none;
+color: #fff;
+}
+
+
+.rating-insufficient {
+background-color: #dc3545;
+}
+
+
+.rating-sufficient {
+background-color: #ffc107;
+color: #000;
+}
+
+
+.rating-notable {
+background-color: #0d6efd;
+}
+
+
+.rating-excellent {
+background-color: #198754;
+}
+
+.year-btn {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.year-soft-red    { border: 1px solid #dc3545; color: #dc3545; background: transparent; }
+.year-soft-yellow { border: 1px solid #ffc107; color: #ffc107; background: transparent; }
+.year-soft-blue   { border: 1px solid #0d6efd; color: #0d6efd; background: transparent; }
+.year-soft-green  { border: 1px solid #198754; color: #198754; background: transparent; }

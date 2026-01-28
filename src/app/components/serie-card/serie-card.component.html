@@ -1,14 +1,14 @@
 <div class="card serie-card" (click)="goToDetail()">
-  <img
-  [src]="serie.imageUrl"
-  (error)="onImageError($event)"
-  alt="{{ serie.name }}"
->
+  <img [src]="serie.imageUrl" (error)="onImageError($event)" alt="{{ serie.name }}">
   <div class="card-body">
     <h5 class="card-title">{{ serie.name }}</h5>
     <div class="button-div">
-      <button type="button" class="btn btn-danger no-hover no-click"> {{ "ratings." + serie.rating|translate }} </button>
-      <button type="button" class="btn btn-danger no-hover no-click">{{ serie.yearWatch }}</button>
+      <button type="button" class="btn no-hover no-click rating-btn" [ngClass]="ratingClassMap[serie.rating]">
+        {{ ('ratings.' + serie.rating) | translate }}
+      </button>
+      <button class="btn no-hover no-click year-btn" [ngClass]="ratingSoftClassMap[serie.rating]">
+        {{ serie.yearWatch }}
+      </button>
     </div>
     <p></p>
   </div>
