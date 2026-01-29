@@ -23,4 +23,9 @@ export class SeriesService {
   create(dto: SeriesCreateModel): Observable<Series> {
     return this.http.post<Series>(this.apiUrl, dto);
   }
+
+  update(publicId: string, series: SeriesCreateModel): Observable<Series> {
+    return this.http.post<Series>(`${this.apiUrl}/${publicId}`, series);
+  }
+
 }

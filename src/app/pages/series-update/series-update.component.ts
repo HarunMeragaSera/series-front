@@ -13,6 +13,7 @@ import { GenreMultiselectComponent } from '../../components/genre-multiselect/ge
 import { Rating } from '../../enums/rating.enum';
 import { Genre } from '../../models/genre.model';
 import { Series } from '../../models/series.model';
+import { SeriesCreateModel } from '../../models/series_create.model';
 
 @Component({
   selector: 'app-series-update',
@@ -28,7 +29,7 @@ export class SeriesUpdateComponent {
   genres?: Genre[] = [];
   ratingOptions = Object.values(Rating);
   serie: Series | null = null;
-  publicId: string|null = null;
+  publicId: string | null = null;
 
 
   constructor(
@@ -94,5 +95,21 @@ export class SeriesUpdateComponent {
     });
   }
 
-  submit(): void { }
+  submit(): void {
+    if (this.seriesForm.invalid) {
+      this.messageService.warning('message.warning-form');
+      this.seriesForm.markAllAsTouched();
+      return;
+    }
+    const seriesDto: SeriesCreateModel = { ...this.seriesForm.value };
+    this.seriesService.update(this.publicId!, seriesDto).subscribe({
+      next: (createdSeries) => {
+        this.messageService.success('message.success-series');
+        this.router.navigate(['/series', this.publicId!]);
+      },
+      error: (err) => {
+        this.messageService.error('message.error');
+      }
+    });
+  }
 }

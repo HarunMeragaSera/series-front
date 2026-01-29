@@ -38,7 +38,7 @@ export class GenreMultiselectComponent implements OnChanges {
   }
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['ids'] && this.ids?.length) {
-      this.control.setValue(this.ids, { emitEvent: false });
+      this.control.setValue(this.ids, { emitEvent: true });
     }
   }
 
