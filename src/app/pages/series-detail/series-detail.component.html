@@ -17,7 +17,7 @@
               </span>
               <span class="dot">•</span>
               <div class="genres">
-                  @for (genre of getGenreNamesByIds(); track genre) {
+                  @for (genre of (serie.genres ?? [] | genreNames: genres ?? []); track $index) {
                     <span class="genre-badge">{{ genre }}</span>
                   }
               </div>

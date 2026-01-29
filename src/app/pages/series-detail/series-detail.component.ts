@@ -6,11 +6,12 @@ import { Series } from '../../models/series.model';
 import { CommonModule } from '@angular/common';
 import { GenreService } from '../../services/genre.service';
 import { Genre } from '../../models/genre.model';
+import { GenreNamesPipe } from '../../pipes/genre-names.pipe';
 
 @Component({
   selector: 'app-series-detail',
   standalone: true,
-  imports: [TranslateModule, CommonModule],
+  imports: [TranslateModule, CommonModule,GenreNamesPipe],
   templateUrl: './series-detail.component.html',
   styleUrl: './series-detail.component.css'
 })
