@@ -43,8 +43,8 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-size: 1.2rem;          /* ⬆️ MÁS GRANDE */
-  font-weight: 600;           /* ⬆️ MÁS PRESENCIA */
+  font-size: 1.2rem;
+  font-weight: 600;
   margin-bottom: 1.2rem;
   color: #eee;
 }
@@ -86,4 +86,26 @@
   background: rgba(255, 255, 255, 0.22);
   border-color: rgba(255, 255, 255, 0.4);
   transform: translateY(-1px);
+}
+.save-button {
+background-color: #450156;
+color: white;
+padding: 10px 20px;
+border: none;
+border-radius: 8px;
+font-size: 16px;
+font-weight: bold;
+cursor: pointer;
+transition: background-color 0.3s, transform 0.2s;
+}
+
+
+.save-button:hover {
+background-color: #59006f;
+transform: scale(1.05);
+}
+
+
+.save-button:active {
+transform: scale(0.98);
 }

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -23,10 +23,12 @@ import { MatInputModule } from '@angular/material/input';
 })
 
 
-export class GenreMultiselectComponent {
+export class GenreMultiselectComponent implements OnChanges {
 
   @Input({ required: true }) genres: Genre[] = [];
+  @Input({ required: false }) ids: number[] = [];
   @Output() selectedIdsChange = new EventEmitter<number[]>();
+
   control = new FormControl<number[]>([]);
 
   constructor(private translate: TranslateService) {
@@ -34,8 +36,14 @@ export class GenreMultiselectComponent {
     this.selectedIdsChange.emit(value ?? []);
     });
   }
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['ids'] && this.ids?.length) {
+      this.control.setValue(this.ids, { emitEvent: false });
+    }
+  }
 
   getLanguage(): string {
     return this.translate.currentLang;
   }
+
 }

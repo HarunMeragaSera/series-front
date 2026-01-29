@@ -1,0 +1,58 @@
+<form [formGroup]="seriesForm" (ngSubmit)="submit()" class="ms-4 mt-4">
+  <div class="row w-100">
+    <div class="form-group col-4">
+      <mat-form-field appearance="outline" class="white-field">
+        <mat-label>{{ 'form.name' | translate }}</mat-label>
+        <input matInput type="text" formControlName="name" placeholder="Series name" />
+      </mat-form-field>
+    </div>
+    <div class="form-group col-3">
+      <mat-form-field appearance="outline" class="white-field">
+        <mat-label>{{ 'form.rating' | translate }}</mat-label>
+        <mat-select formControlName="rating">
+          <mat-option [value]="null">
+            {{ 'ratings.null' | translate }}
+          </mat-option>
+          @for (r of ratingOptions; track r) {
+          <mat-option [value]="r">
+            {{ 'ratings.' + r | translate }}
+          </mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="form-group col-3">
+      <mat-form-field appearance="outline" class="white-field">
+        <mat-label>{{ 'form.yearWatch' | translate }}</mat-label>
+        <input matInput type="number" formControlName="yearWatch" min="1" />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row w-100">
+    <div class="form-group col-4">
+      <mat-form-field appearance="outline" class="white-field">
+        <mat-label>{{ 'form.imageUrl' | translate }}</mat-label>
+        <input matInput type="url" formControlName="imageUrl" placeholder="https://..." />
+      </mat-form-field>
+    </div>
+    <div class="form-group col-4">
+      <app-genre-multiselect [genres]="genres!" [ids]="serie?.genres ?? []" (selectedIdsChange)="onGenresSelected($event)"></app-genre-multiselect>
+    </div>
+  </div>
+  <div class="row w-100">
+    <div class="form-group col-5">
+      <mat-form-field appearance="outline" class="white-field">
+        <mat-label>{{ 'form.description' | translate }}</mat-label>
+        <textarea matInput formControlName="description" rows="4" maxlength="2000"></textarea>
+        <mat-hint align="end">
+          {{ seriesForm.get('description')?.value?.length || 0 }}/2000
+        </mat-hint>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="form-actions">
+    <button class ="save-button" type="submit">
+      {{ 'form.save' | translate }}
+    </button>
+  </div>
+</form>

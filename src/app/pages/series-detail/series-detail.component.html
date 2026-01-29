@@ -17,15 +17,18 @@
               </span>
               <span class="dot">•</span>
               <div class="genres">
-                  @for (genre of serie.genres; track genre) {
+                  @for (genre of getGenreNamesByIds(); track genre) {
                     <span class="genre-badge">{{ genre }}</span>
                   }
               </div>
             </div>
             <p class="description">{{ serie.description }}</p>
-
+            <button class ="save-button" (click)="goToSeriesUpdate()">
+              {{ 'message.edit' | translate }}
+            </button>
           </div>
         </div>
     </div>
+
   }
 </div>

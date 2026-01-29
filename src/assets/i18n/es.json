@@ -28,6 +28,7 @@
   "message": {
     "success-series": "Serie guardada correctamente",
     "error": "Se ha producido un error",
-    "warning-form": "Faltan campos obligatorios"
+    "warning-form": "Faltan campos obligatorios",
+    "edit": "Editar"
   }
 }

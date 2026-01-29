@@ -8,6 +8,6 @@ export class Series {
     public description?: string,
     public imageUrl?: string,
     public publicId?: string,
-    public genres?: string[]
+    public genres?: number[]
   ) {}
 }
