@@ -30,5 +30,6 @@
     "error": "Se ha producido un error",
     "warning-form": "Faltan campos obligatorios",
     "edit": "Editar"
-  }
+  },
+  "filters":"Filtros"
 }

@@ -30,5 +30,6 @@
     "error": "An error occurred",
     "warning-form": "Missing required fields",
     "edit": "Edit"
-  }
+  },
+  "filters":"Filters"
 }

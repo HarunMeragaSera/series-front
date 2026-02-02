@@ -10,6 +10,9 @@ import { Genre } from '../../models/genre.model';
 import { SeriesFilter } from '../../models/series_filter.model';
 import { TranslateModule } from '@ngx-translate/core';
 import { GenreService } from '../../services/genre.service';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
+
 
 @Component({
   selector: 'series-filters',
@@ -17,9 +20,11 @@ import { GenreService } from '../../services/genre.service';
   imports: [
         CommonModule,
     ReactiveFormsModule,
+MatExpansionModule,
+    MatIconModule,
     MatFormFieldModule,
-    MatSelectModule,
     MatInputModule,
+    MatSelectModule,
     MatButtonModule,
     TranslateModule
   ],
@@ -78,7 +83,7 @@ export class SeriesFiltersComponent {
 
     return {
       ...(value.name && { name: value.name }),
-      ...(value.rating && { yearFrom: value.rating }),
+      ...(value.rating && { rating: value.rating }),
       ...(value.yearWatch && { yearWatch: value.yearWatch }),
       ...(value.genres?.length && { genres: value.genres })
     };
