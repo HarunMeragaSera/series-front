@@ -7,7 +7,7 @@
 
   <mat-form-field appearance="outline" class="white-field">
     <mat-label>{{'detail.rating'|translate}}</mat-label>
-    <mat-select formControlName="rating">
+    <mat-select formControlName="rating" panelClass="my-dark-select">
       <mat-option *ngFor="let r of ratings" [value]="r">
         {{ ('ratings.' + r) | translate }}
       </mat-option>
@@ -21,7 +21,7 @@
 
   <mat-form-field appearance="outline" class="white-field">
     <mat-label>{{'detail.genre'|translate}}</mat-label>
-    <mat-select formControlName="genres" multiple>
+    <mat-select formControlName="genres" multiple panelClass="my-dark-select">
       @for (g of genres; track $index) {
         <mat-option [value]="g.id">
           {{ g.name }}

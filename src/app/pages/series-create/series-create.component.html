@@ -9,7 +9,7 @@
     <div class="form-group col-3">
       <mat-form-field appearance="outline" class="white-field">
         <mat-label>{{ 'form.rating' | translate }}</mat-label>
-        <mat-select formControlName="rating">
+        <mat-select formControlName="rating" panelClass="my-dark-select">
           <mat-option [value]="null">
             {{ 'ratings.null' | translate }}
           </mat-option>

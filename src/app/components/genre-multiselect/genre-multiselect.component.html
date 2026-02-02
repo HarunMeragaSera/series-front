@@ -2,7 +2,7 @@
   <mat-label>{{ 'form.genres' | translate }}</mat-label>
 
 
-  <mat-select [formControl]="control" multiple>
+  <mat-select [formControl]="control" multiple panelClass="my-dark-select">
     @for (genre of genres; track $index) {
       <mat-option [value]="genre.id">
         @if(getLanguage() === 'es') {
