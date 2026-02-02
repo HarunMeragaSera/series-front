@@ -75,36 +75,31 @@ input[type=number] {
 }
 
 .my-dark-select.mat-mdc-select-panel {
-  background-color: #1e1e1e !important; /* Tu color oscuro */
+  background-color: #1e1e1e !important;
 }
 
-/* Estilo para las opciones individuales */
 .my-dark-select .mat-mdc-option {
   color: white !important;
 }
 
-/* Estilo cuando pasas el mouse (hover) o está seleccionada */
 .my-dark-select .mat-mdc-option:hover,
 .my-dark-select .mat-mdc-option.mdc-list-item--selected {
   background-color: rgba(255, 255, 255, 0.1) !important;
 }
-/* 1. Color del texto de la opción seleccionada */
+
 .my-dark-select .mat-mdc-option.mdc-list-item--selected .mdc-list-item__primary-text {
-  color: #ffffff !important; /* O el color que prefieras para resaltar */
+  color: #ffffff !important;
 }
 
-/* 2. Color del checkbox (ya que usas 'multiple') */
 .my-dark-select .mat-mdc-option.mdc-list-item--selected .mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked::after {
-  color: #ffffff !important; /* El color del "tick" o palomita */
+  color: #ffffff !important;
 }
 
-/* 3. Color de fondo del checkbox cuando está seleccionado */
 .my-dark-select .mat-mdc-option.mdc-list-item--selected .mat-pseudo-checkbox-checked {
-  background-color: #ff4081 !important; /* Color de acento (ej. rosa/fucsia) */
+  background-color: #ff4081 !important;
   border-color: #ff4081 !important;
 }
 
-/* 4. Color cuando pasas el mouse sobre una opción ya seleccionada */
 .my-dark-select .mat-mdc-option.mdc-list-item--selected:hover {
   background-color: rgba(255, 255, 255, 0.15) !important;
 }
@@ -113,12 +108,10 @@ input[type=number] {
   color: white !important;
 }
 
-/* 2. Cambia el color del placeholder (cuando no hay nada seleccionado) */
 .mat-mdc-select-placeholder {
   color: rgba(255, 255, 255, 0.5) !important;
 }
 
-/* 3. Cambia el color de la flechita hacia abajo */
 .mat-mdc-select-arrow svg {
   fill: white !important;
 }

@@ -7,6 +7,14 @@
   color: #ffffff;
 }
 
+.card-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  width: 90%;
+}
+
 .serie-card img {
   width: 120px;
   height: auto;
