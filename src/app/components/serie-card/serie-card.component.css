@@ -5,6 +5,11 @@
   max-width: 540px;
   background-color: #2b0036;
   color: #ffffff;
+
+}
+
+.card-body {
+  min-width: 0;
 }
 
 .card-title {
@@ -12,7 +17,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   display: block;
-  width: 90%;
+  width: 100%;
 }
 
 .serie-card img {
