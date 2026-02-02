@@ -77,7 +77,7 @@ export class SeriesCreateComponent implements OnInit {
     this.seriesService.create(seriesDto).subscribe({
       next: (createdSeries) => {
         this.messageService.success('message.success-series');
-        this.navigateToList();
+        this.navigateToList(createdSeries.publicId!);
       },
       error: (err) => {
         this.messageService.error('message.error');
@@ -85,8 +85,8 @@ export class SeriesCreateComponent implements OnInit {
     });
   }
 
-  navigateToList() {
-      this.router.navigate(['/series']);
+  navigateToList(publicid: string): void {
+      this.router.navigate(['/series', publicid]);
   }
 
 }
