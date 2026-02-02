@@ -4,11 +4,13 @@ import { SeriesService } from '../../services/series.service';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { SerieCardComponent } from '../../components/serie-card/serie-card.component';
 import { Router } from '@angular/router';
+import { SeriesFilter } from '../../models/series_filter.model';
+import { SeriesFiltersComponent } from '../../components/series-filters/series-filters.component';
 
 @Component({
   selector: 'app-series-list',
   standalone: true,
-  imports: [TranslateModule,SerieCardComponent],
+  imports: [TranslateModule,SerieCardComponent,SeriesFiltersComponent],
   templateUrl: './series-list.component.html',
   styleUrl: './series-list.component.css'
 })
@@ -30,4 +32,10 @@ export class SeriesListComponent implements OnInit{
   openCreateSeries() {
     this.router.navigate(['/series/create']);
   }
+
+  loadSeries(filters: SeriesFilter) {
+  this.seriesService.getAll(filters).subscribe(series => {
+    this.series = series;
+  });
+}
 }
