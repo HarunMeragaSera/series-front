@@ -49,4 +49,8 @@ export class SeriesService {
     return this.http.post<Series>(`${this.apiUrl}/${publicId}`, series);
   }
 
+  deleteByPublicId(publicId: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${publicId}`);
+  }
+
 }
