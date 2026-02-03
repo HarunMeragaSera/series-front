@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { Series } from '../../models/series.model';
 import { Router } from '@angular/router';
 import { Rating } from '../../enums/rating.enum';
 import { CommonModule } from '@angular/common';
+import { SeriesService } from '../../services/series.service';
 
 @Component({
   selector: 'series-card',
@@ -16,8 +17,12 @@ import { CommonModule } from '@angular/common';
 export class SerieCardComponent {
 
   @Input() serie!: Series;
+  @Output() deleteSerie = new EventEmitter<string>();
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private seriesService: SeriesService
+  ) { }
 
   onImageError(event: Event) {
     (event.target as HTMLImageElement).src = 'assets/default.png';
@@ -40,4 +45,10 @@ export class SerieCardComponent {
     [Rating.notable]: 'year-soft-blue',
     [Rating.excellent]: 'year-soft-green',
   };
+
+  deleteByPublicId() {
+    this.seriesService.deleteByPublicId(this.serie.publicId!).subscribe(() => {
+      this.deleteSerie.emit(this.serie.publicId);
+    });
+  }
 }

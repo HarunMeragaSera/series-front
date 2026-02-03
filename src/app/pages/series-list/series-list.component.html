@@ -4,7 +4,7 @@
 </series-filters>
   @for (serie of series; track $index) {
     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-      <series-card [serie]="serie"></series-card>
+      <series-card [serie]="serie" (deleteSerie)="onDeleteSerie($event)"></series-card>
     </div>
   }
   <button class="fab" (click)="openCreateSeries()">

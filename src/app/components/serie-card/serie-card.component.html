@@ -1,6 +1,7 @@
-<div class="card serie-card" (click)="goToDetail()">
+<div class="card serie-card" >
   <img [src]="serie.imageUrl" (error)="onImageError($event)" alt="{{ serie.name }}">
   <div class="card-body">
+    <button type="button" class="btn btn-danger btn-sm delete-btn" (click)="deleteByPublicId()"></button>
     <h5 class="card-title">{{ serie.name }}</h5>
     <div class="button-div">
       <button type="button" class="btn no-hover no-click rating-btn" [ngClass]="ratingClassMap[serie.rating]">

@@ -10,11 +10,11 @@ import { SeriesFiltersComponent } from '../../components/series-filters/series-f
 @Component({
   selector: 'app-series-list',
   standalone: true,
-  imports: [TranslateModule,SerieCardComponent,SeriesFiltersComponent],
+  imports: [TranslateModule, SerieCardComponent, SeriesFiltersComponent],
   templateUrl: './series-list.component.html',
   styleUrl: './series-list.component.css'
 })
-export class SeriesListComponent implements OnInit{
+export class SeriesListComponent implements OnInit {
 
   series: Series[] = [];
 
@@ -22,7 +22,7 @@ export class SeriesListComponent implements OnInit{
     private seriesService: SeriesService,
     private translate: TranslateService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.seriesService.getAll().subscribe(data => {
@@ -34,8 +34,12 @@ export class SeriesListComponent implements OnInit{
   }
 
   loadSeries(filters: SeriesFilter) {
-  this.seriesService.getAll(filters).subscribe(series => {
-    this.series = series;
-  });
-}
+    this.seriesService.getAll(filters).subscribe(series => {
+      this.series = series;
+    });
+  }
+
+  onDeleteSerie(publicId: string) {
+    this.series = this.series.filter(serie => serie.publicId !== publicId);
+  }
 }
