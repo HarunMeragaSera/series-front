@@ -5,11 +5,12 @@ import { Router } from '@angular/router';
 import { Rating } from '../../enums/rating.enum';
 import { CommonModule } from '@angular/common';
 import { SeriesService } from '../../services/series.service';
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'series-card',
   standalone: true,
-  imports: [TranslateModule, CommonModule],
+  imports: [TranslateModule, CommonModule, MatIconModule],
   templateUrl: './serie-card.component.html',
   styleUrl: './serie-card.component.css'
 })
