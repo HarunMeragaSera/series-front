@@ -1,1 +1,18 @@
-<p>lists works!</p>
+<div class="grid-container">
+  @for (list of lists; track list.id) {
+    <div class="mini-card">
+      <div class="card-content">
+        <h3 class="list-name">{{ list.name }}</h3>
+        <div class="series-count">
+          <span class="count-number">{{ list.series.length }}</span>
+          <span class="count-label">{{ list.series.length === 1 ? 'serie' : 'series' }}</span>
+        </div>
+      </div>
+      <div class="card-footer-line"></div>
+    </div>
+  } @empty {
+    <div class="empty-state">
+      <p>{{ 'series-list.no-lists' | translate }}</p>
+    </div>
+  }
+</div>

@@ -31,5 +31,9 @@
     "warning-form": "Faltan campos obligatorios",
     "edit": "Editar"
   },
-  "filters":"Filtros"
+  "filters":"Filtros",
+  "series-list": {
+    "no-series": "No hay series disponibles",
+    "no-lists": "No hay listas disponibles"
+  }
 }
