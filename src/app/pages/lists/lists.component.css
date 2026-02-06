@@ -68,3 +68,11 @@
 .mini-card:hover .card-footer-line {
   opacity: 1;
 }
+
+.delete-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: #e53935;
+  cursor: pointer;
+}
