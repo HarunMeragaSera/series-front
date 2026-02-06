@@ -15,4 +15,14 @@
       <p>{{ 'series-list.no-lists' | translate }}</p>
     </div>
   }
+  <button class="fab" (click)="openModal()">
+    <span class="material-icons">add</span>
+  </button>
 </div>
+
+@if (showModal) {
+  <app-create-list-modal
+    (close)="showModal = false"
+    (created)="handleCreateList($event)">
+  </app-create-list-modal>
+}

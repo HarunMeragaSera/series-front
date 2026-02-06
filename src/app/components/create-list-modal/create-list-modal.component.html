@@ -1,0 +1,24 @@
+<div class="modal-overlay" (click)="onClose()">
+  <div class="modal-card" (click)="$event.stopPropagation()">
+
+    <header class="modal-header">
+      <h2>{{'series-list.create-list' | translate}}</h2>
+    </header>
+
+    <form [formGroup]="listForm" (ngSubmit)="onSave()" class="modal-body">
+      <div class="input-group">
+        <mat-form-field appearance="outline" class="white-field mt-3">
+          <mat-label>{{ 'form.name' | translate }}</mat-label>
+          <input matInput type="text" formControlName="name" placeholder="Series name" />
+        </mat-form-field>
+      </div>
+      <footer class="modal-footer">
+        <button type="button" class="btn-secondary" (click)="onClose()">{{'form.cancel' | translate}}</button>
+        <button type="submit" class="btn-primary" [disabled]="listForm.invalid">
+          {{'form.save' | translate}}
+        </button>
+      </footer>
+    </form>
+
+  </div>
+</div>

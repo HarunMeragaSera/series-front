@@ -23,7 +23,8 @@
     "yearWatch": "Year watched",
     "description": "Description",
     "rating": "Rating",
-    "genres": "Genres"
+    "genres": "Genres",
+    "cancel": "Cancel"
   },
   "message": {
     "success-series": "Serie saved successfully",
@@ -34,6 +35,7 @@
   "filters":"Filters",
   "series-list": {
     "no-series": "No series available",
-    "no-lists": "No lists available"
+    "no-lists": "No lists available",
+    "create-list": "Create List"
   }
 }

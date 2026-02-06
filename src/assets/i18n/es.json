@@ -23,7 +23,8 @@
     "yearWatch": "Año de visualización",
     "description": "Descripción",
     "rating": "Valoracion",
-    "genres": "Géneros"
+    "genres": "Géneros",
+    "cancel": "Cancelar"
   },
   "message": {
     "success-series": "Serie guardada correctamente",
@@ -34,6 +35,7 @@
   "filters":"Filtros",
   "series-list": {
     "no-series": "No hay series disponibles",
-    "no-lists": "No hay listas disponibles"
+    "no-lists": "No hay listas disponibles",
+    "create-list": "Crear Lista"
   }
 }

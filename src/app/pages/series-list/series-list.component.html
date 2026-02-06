@@ -1,13 +1,12 @@
 <div class="row g-3 ms-2 me-2">
-  <series-filters
-  (filtersChange)="loadSeries($event)">
-</series-filters>
+  <series-filters (filtersChange)="loadSeries($event)">
+  </series-filters>
   @for (serie of series; track $index) {
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-      <series-card [serie]="serie" (deleteSerie)="onDeleteSerie($event)"></series-card>
-    </div>
+  <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+    <series-card [serie]="serie" (deleteSerie)="onDeleteSerie($event)"></series-card>
+  </div>
   }
   <button class="fab" (click)="openCreateSeries()">
-  <span class="material-icons">add</span>
-</button>
+    <span class="material-icons">add</span>
+  </button>
 </div>
