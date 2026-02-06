@@ -39,7 +39,10 @@ export class ListsComponent implements OnInit {
 
   handleCreateList(name: string) {
     console.log(name);
-    this.showModal = false;
+    this.listService.create(name).subscribe(newList => {
+      this.lists.push(newList);
+      this.showModal = false;
+    });
   }
 
 }
