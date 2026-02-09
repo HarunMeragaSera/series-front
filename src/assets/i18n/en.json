@@ -36,6 +36,8 @@
   "series-list": {
     "no-series": "No series available",
     "no-lists": "No lists available",
-    "create-list": "Create List"
+    "create-list": "Create List",
+    "add-to-list": "Add to List",
+    "series": "Series"
   }
 }

@@ -4,7 +4,12 @@
     <series-card [serie]="serie" (deleteSerie)="onDeleteSerie($event)"></series-card>
   </div>
   }
-  <button class="fab" >
+  <button class="fab" (click)="openModal()">
     <span class="material-icons">add</span>
   </button>
 </div>
+
+@if (showModal) {
+<app-create-list-modal [type]="'append'" (close)="showModal = false"  (created)="append($event)">
+</app-create-list-modal>
+}

@@ -36,6 +36,8 @@
   "series-list": {
     "no-series": "No hay series disponibles",
     "no-lists": "No hay listas disponibles",
-    "create-list": "Crear Lista"
+    "create-list": "Crear Lista",
+    "add-to-list": "Añadir a Lista",
+    "series": "Series"
   }
 }

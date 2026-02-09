@@ -1,6 +1,6 @@
 <div class="modal-overlay" (click)="onClose()">
   <div class="modal-card" (click)="$event.stopPropagation()">
-
+    @if (type!='append') {
     <header class="modal-header">
       <h2>{{'series-list.create-list' | translate}}</h2>
     </header>
@@ -19,6 +19,31 @@
         </button>
       </footer>
     </form>
-
+    }
+    @else {
+    <header class="modal-header">
+      <h2>{{'series-list.add-to-list' | translate}}</h2>
+    </header>
+    <form [formGroup]="appendForm" (ngSubmit)="onAppend()" class="modal-body">
+      <div class="input-group">
+        <mat-form-field appearance="outline" class="white-field mt-3">
+          <mat-label>{{ 'series-list.series' | translate }}</mat-label>
+          <mat-select formControlName="serieId" multiple panelClass="my-dark-select">
+            @for (s of series; track $index) {
+            <mat-option [value]="s.publicId">
+              {{ s.name }}
+            </mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <footer class="modal-footer">
+        <button type="button" class="btn-secondary" (click)="onClose()">{{'form.cancel' | translate}}</button>
+        <button type="submit" class="btn-primary" [disabled]="appendForm.invalid">
+          {{'form.save' | translate}}
+        </button>
+      </footer>
+    </form>
+    }
   </div>
 </div>
