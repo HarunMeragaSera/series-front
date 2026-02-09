@@ -40,6 +40,8 @@ export class SeriesListComponent implements OnInit {
   }
 
   onDeleteSerie(publicId: string) {
-    this.series = this.series.filter(serie => serie.publicId !== publicId);
+    this.seriesService.deleteByPublicId(publicId).subscribe(() => {
+      this.series = this.series.filter(serie => serie.publicId !== publicId);
+    });
   }
 }

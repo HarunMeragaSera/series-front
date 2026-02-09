@@ -30,7 +30,6 @@ export class ListsComponent implements OnInit {
   getLists() {
     this.listService.getAll().subscribe(data => {
       this.lists = data;
-      console.log(this.lists);
     });
   }
 
@@ -49,6 +48,10 @@ export class ListsComponent implements OnInit {
     this.listService.delete(list.id).subscribe(() => {
       this.lists = this.lists.filter(l => l.id !== list.id);
     });
+  }
+
+  goToDetail(list: SeriesListDTO) {
+    this.router.navigate(['/lists', list.id.toString()]);
   }
 
 }

@@ -48,8 +48,8 @@ export class SerieCardComponent {
   };
 
   deleteByPublicId() {
-    this.seriesService.deleteByPublicId(this.serie.publicId!).subscribe(() => {
-      this.deleteSerie.emit(this.serie.publicId);
-    });
+    this.deleteSerie.emit(this.serie.publicId);
   }
+
+
 }
