@@ -30,7 +30,8 @@
     "success-series": "Serie saved successfully",
     "error": "An error occurred",
     "warning-form": "Missing required fields",
-    "edit": "Edit"
+    "edit": "Edit",
+    "success-delete": "Serie removed successfully"
   },
   "filters":"Filters",
   "series-list": {

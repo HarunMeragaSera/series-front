@@ -4,6 +4,7 @@ import { SeriesListService } from '../../services/series_list.service';
 import { SeriesListDTO } from '../../models/series_list.model';
 import { SerieCardComponent } from '../../components/serie-card/serie-card.component';
 import { CreateListModalComponent } from '../../components/create-list-modal/create-list-modal.component';
+import { MessageService } from '../../services/message.service';
 
 @Component({
   selector: 'app-list-detail',
@@ -21,7 +22,8 @@ export class ListDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private listService: SeriesListService
+    private listService: SeriesListService,
+    private messageService: MessageService,
   ) { }
 
   ngOnInit(): void {
@@ -34,8 +36,14 @@ export class ListDetailComponent implements OnInit {
   }
 
   onDeleteSerie(publicId: string) {
-    this.listService.removeSeries(this.id!, publicId).subscribe(() => {
-      this.list = this.list ? { ...this.list, series: this.list.series.filter(s => s.publicId !== publicId) } : null;
+    this.listService.removeSeries(this.id!, publicId).subscribe({
+      next: (data) => {
+        this.messageService.success('message.success-delete');
+        this.list = this.list ? { ...this.list, series: this.list.series.filter(s => s.publicId !== publicId) } : null;
+      },
+      error: (err) => {
+        this.messageService.error('message.error');
+      }
     });
   }
 
@@ -44,10 +52,14 @@ export class ListDetailComponent implements OnInit {
   }
 
   append(serieId: string) {
-    this.listService.addSeries(this.id!, serieId).subscribe((data) => {
-        if (data) {
-          this.list = data;
-        }
+    this.listService.addSeries(this.id!, serieId).subscribe({
+      next: (data) => {
+        this.messageService.success('message.success-series');
+        this.list=data;
+      },
+      error: (err) => {
+        this.messageService.error('message.error');
+      }
     });
     this.showModal = false;
   }
