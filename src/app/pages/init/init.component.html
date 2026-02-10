@@ -1,0 +1,34 @@
+<div class="home-container">
+  <header class="home-header">
+    <h1 class="glow-text">Anime<span>List</span></h1>
+    <p>Gestiona tu catálogo personal y listas de reproducción</p>
+  </header>
+
+  <main class="nav-grid">
+    <div class="nav-card series-card" (click)="goTo('series')">
+      <div class="card-content">
+        <div class="icon-wrapper">
+          <mat-icon>movie_filter</mat-icon>
+        </div>
+        <div class="text-wrapper">
+          <h2>Explorar Series</h2>
+          <p>Descubre nuevas historias y gestiona tu progreso.</p>
+        </div>
+        <span class="arrow-link">Ver todo →</span>
+      </div>
+    </div>
+
+    <div class="nav-card lists-card" (click)="goTo('lists')">
+      <div class="card-content">
+        <div class="icon-wrapper">
+          <mat-icon>view_list</mat-icon>
+        </div>
+        <div class="text-wrapper">
+          <h2>Mis Listas</h2>
+          <p>Organiza tus favoritas en colecciones personalizadas.</p>
+        </div>
+        <span class="arrow-link">Explorar →</span>
+      </div>
+    </div>
+  </main>
+</div>

@@ -14,8 +14,8 @@ import { Router } from '@angular/router';
 
     constructor (private translate: TranslateService,private router: Router) {}
 
-    navigateToList() {
-      this.router.navigate(['/series']);
+    navigate() {
+      this.router.navigate(['']);
     }
 
   }
