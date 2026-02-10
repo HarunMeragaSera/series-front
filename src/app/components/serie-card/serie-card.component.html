@@ -1,6 +1,6 @@
 <div class="card serie-card" >
-  <img [src]="serie.imageUrl" (error)="onImageError($event)" alt="{{ serie.name }}">
-  <div class="card-body">
+  <img [src]="serie.imageUrl" (error)="onImageError($event)" alt="{{ serie.name }}" (click)="goToDetail()">
+  <div class="card-body" >
     <div class="d-flex">
       <h5 class="card-title">{{ serie.name }}</h5>
       <mat-icon class="delete-icon" (click)="deleteByPublicId()">delete</mat-icon>
@@ -10,7 +10,7 @@
         {{ ('ratings.' + serie.rating) | translate }}
       </button>
       <button class="btn no-hover no-click year-btn" [ngClass]="ratingSoftClassMap[serie.rating]">
-        {{ serie.yearWatch }}
+        {{ serie.yearWatch || 'N/A' }}
       </button>
     </div>
     <p></p>

@@ -22,7 +22,7 @@
 
 .serie-card img {
   width: 120px;
-  height: auto;
+  height: 16vh;
   object-fit: cover;
   border-radius: 0.375rem 0 0 0.375rem;
 }
