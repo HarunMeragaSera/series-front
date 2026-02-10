@@ -6,11 +6,13 @@ import { TranslateModule } from '@ngx-translate/core';
 import { Series } from '../../models/series.model';
 import { MatSelectModule } from '@angular/material/select';
 import { SeriesService } from '../../services/series.service';
+import { MatIconModule } from '@angular/material/icon';
+import { debounceTime, distinctUntilChanged, startWith, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-create-list-modal',
   standalone: true,
-  imports: [ReactiveFormsModule, MatInputModule, MatFormFieldModule, TranslateModule, MatSelectModule],
+  imports: [ReactiveFormsModule, MatInputModule, MatFormFieldModule, TranslateModule, MatSelectModule, MatIconModule],
   templateUrl: './create-list-modal.component.html',
   styleUrl: './create-list-modal.component.css'
 })
@@ -26,16 +28,7 @@ export class CreateListModalComponent implements OnChanges {
     private seriesService: SeriesService
   ) { }
 
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['type']) {
-      this.seriesService.getAll().subscribe(data => {
-        this.series = data;
-      });
-    }
-  }
-
-
+  searchControl = new FormControl('');
   listForm: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3)]),
   });
@@ -44,7 +37,29 @@ export class CreateListModalComponent implements OnChanges {
     serieId: new FormControl('', [Validators.required]),
   });
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['type'] && this.type === 'append') {
+      this.setupSearch();
+    }
+  }
 
+  private setupSearch() {
+    this.searchControl.valueChanges.pipe(
+      startWith(''),
+      debounceTime(300),
+      distinctUntilChanged(),
+      switchMap(term => {
+        return this.seriesService.getAll({ name: term || '' });
+      })
+    ).subscribe({
+      next: (data) => {
+        this.series = data;
+      },
+      error: (err) => {
+        console.error('Error buscando series:', err);
+      }
+    });
+  }
   onClose() {
     this.close.emit();
   }

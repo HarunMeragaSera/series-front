@@ -24,7 +24,8 @@
     "description": "Descripción",
     "rating": "Valoracion",
     "genres": "Géneros",
-    "cancel": "Cancelar"
+    "cancel": "Cancelar",
+    "search": "Buscar"
   },
   "message": {
     "success-series": "Serie guardada correctamente",

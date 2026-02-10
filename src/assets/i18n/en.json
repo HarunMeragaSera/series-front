@@ -24,7 +24,8 @@
     "description": "Description",
     "rating": "Rating",
     "genres": "Genres",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "search": "Search"
   },
   "message": {
     "success-series": "Serie saved successfully",

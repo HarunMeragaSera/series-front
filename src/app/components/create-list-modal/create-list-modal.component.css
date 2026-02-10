@@ -1,0 +1,34 @@
+.input-group {
+  width: 100%;
+}
+
+.white-field {
+  width: 100%;
+}
+
+
+.search-inner-field {
+  width: 100%;
+}
+
+::ng-deep .search-inner-field .mat-mdc-form-field-subscript-wrapper {
+  display: none;
+}
+
+.no-results {
+  padding: 16px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #e1e1e1;
+}
+
+::ng-deep .my-dark-select .select-search-header {
+  background-color: #121212 !important; /* Ajusta al negro de tus opciones */
+  padding: 8px 12px 4px 12px;
+}
+
+::ng-deep .my-dark-select .search-inner-field .mat-mdc-text-field-wrapper {
+  background-color: #1e1e1e !important; /* Gris muy oscuro o transparente */
+}
+
+

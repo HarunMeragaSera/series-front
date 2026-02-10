@@ -22,25 +22,36 @@
     }
     @else {
     <header class="modal-header">
-      <h2>{{'series-list.add-to-list' | translate}}</h2>
+      <h2>{{ 'series-list.add-to-list' | translate }}</h2>
     </header>
+
     <form [formGroup]="appendForm" (ngSubmit)="onAppend()" class="modal-body">
       <div class="input-group">
         <mat-form-field appearance="outline" class="white-field mt-3">
           <mat-label>{{ 'series-list.series' | translate }}</mat-label>
-          <mat-select formControlName="serieId" multiple panelClass="my-dark-select">
-            @for (s of series; track $index) {
+          <mat-select formControlName="serieId" panelClass="my-dark-select">
+            <div class="select-search-header">
+              <mat-form-field appearance="fill" class="search-inner-field" subscriptSizing="dynamic">
+                <mat-icon matPrefix>search</mat-icon>
+                <input matInput [formControl]="searchControl" placeholder="{{ 'form.search' | translate }}"
+                  (keydown)="$event.stopPropagation()" autocomplete="off">
+              </mat-form-field>
+            </div>
+            @for (s of series; track s.publicId) {
             <mat-option [value]="s.publicId">
               {{ s.name }}
             </mat-option>
+            } @empty {
+            <div class="no-results">No se encontraron series</div>
             }
           </mat-select>
         </mat-form-field>
       </div>
+
       <footer class="modal-footer">
-        <button type="button" class="btn-secondary" (click)="onClose()">{{'form.cancel' | translate}}</button>
+        <button type="button" class="btn-secondary" (click)="onClose()">{{ 'form.cancel' | translate }}</button>
         <button type="submit" class="btn-primary" [disabled]="appendForm.invalid">
-          {{'form.save' | translate}}
+          {{ 'form.save' | translate }}
         </button>
       </footer>
     </form>

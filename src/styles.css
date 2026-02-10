@@ -207,6 +207,7 @@ input[type=number] {
   transition: transform 0.2s, background 0.2s;
 }
 
+
 .btn-primary:hover:not(:disabled) {
   background: #30003b;
   transform: translateY(-1px);
