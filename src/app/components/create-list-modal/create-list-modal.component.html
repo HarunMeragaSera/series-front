@@ -32,7 +32,6 @@
           <mat-select formControlName="serieId" panelClass="my-dark-select">
             <div class="select-search-header">
               <mat-form-field appearance="fill" class="search-inner-field" subscriptSizing="dynamic">
-                <mat-icon matPrefix>search</mat-icon>
                 <input matInput [formControl]="searchControl" placeholder="{{ 'form.search' | translate }}"
                   (keydown)="$event.stopPropagation()" autocomplete="off">
               </mat-form-field>

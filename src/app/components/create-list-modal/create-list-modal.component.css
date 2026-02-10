@@ -31,4 +31,7 @@
   background-color: #1e1e1e !important; /* Gris muy oscuro o transparente */
 }
 
-
+::ng-deep .my-dark-select .search-inner-field input.mat-mdc-input-element {
+  color: #ffffff !important;
+  caret-color: #ffffff !important;
+}
